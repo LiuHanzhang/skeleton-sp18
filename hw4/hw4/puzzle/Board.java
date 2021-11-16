@@ -79,7 +79,7 @@ public class Board implements WorldState {
         int distance = 0;
         for (int row = 0; row < N; ++row)
             for (int col = 0; col < N; ++col) {
-                if (tileAt(row, col) != 0 && (tileAt(row, col) != col * 3 + row + 1))
+                if (tileAt(row, col) != 0 && (tileAt(row, col) != row * N + col + 1))
                     ++distance;
             }
         return distance;
@@ -87,7 +87,7 @@ public class Board implements WorldState {
 
     /** A helper function that calculates the sum of the
      * vertical and horizontal distance from a tile to its goal position */
-    private int distanceOff(int num, int N, int row, int col) {
+    private int distanceOff(int num, int row, int col) {
         int goalRow = (num - 1) / N;
         int goalCol = (num - 1) % N;
         return Math.abs(row - goalRow) + Math.abs(goalCol - col);
@@ -98,7 +98,7 @@ public class Board implements WorldState {
         for (int row = 0; row < N; ++row)
             for (int col = 0; col < N; ++col) {
                 if (tileAt(row, col) != 0)
-                    distance += distanceOff(tileAt(row, col), N, row, col);
+                    distance += distanceOff(tileAt(row, col), row, col);
             }
         return distance;
     }
@@ -152,7 +152,7 @@ public class Board implements WorldState {
         s.append(N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                s.append(String.format("%2d ", tileAt(i,j)));
+                s.append(String.format("%2d ", tileAt(i, j)));
             }
             s.append("\n");
         }
