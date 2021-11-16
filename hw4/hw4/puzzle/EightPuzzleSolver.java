@@ -7,8 +7,10 @@ public class EightPuzzleSolver {
     /***********************************************************************
      * Test routine for your Solver class. Uncomment and run to test
      * your basic functionality.
+     * @param args One command line argument, the path of input file,
+     *             e.g. input/puzzle01.txt
     **********************************************************************/
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         In in = new In(args[0]);
         int N = in.readInt();
         int[][] tiles = new int[N][N];
@@ -23,5 +25,5 @@ public class EightPuzzleSolver {
         for (WorldState ws : solver.solution()) {
             StdOut.println(ws);
         }
-    }*/
+    }
 }
